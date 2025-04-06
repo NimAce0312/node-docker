@@ -1,0 +1,19 @@
+services:
+  server:
+    build: ./server
+    volumes:
+      - ./app/server:/app/server
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+
+  database:
+    build: ./database
+    ports:
+      - "27017:27017"
+    volumes:
+      - db_data:/data/db
+
+volumes:
+  db_data:
