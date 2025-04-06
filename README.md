@@ -79,18 +79,9 @@ sudo docker logs -f <container-name>
 
 ### 🧠 MongoDB Connection String
 
-- **From outside Docker network:**
-
 ```
-mongodb://localhost:27017/?authSource=admin&replicaSet=rs0
+mongodb://172.17.0.1:27017/node-js?authSource=admin&replicaSet=rs0
 ```
-
-- **From within the Docker network:**
-
-```
-mongodb://database:27017/?authSource=admin&replicaSet=rs0
-```
-
 ### 🛠 Installing Packages
 
 To install a new Node.js package (e.g., axios):
