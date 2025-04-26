@@ -153,3 +153,40 @@ The application uses environment variables for configuration. You can configure 
 - `ADMIN_USERNAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`: Credentials for the default admin user.
 
 Make sure to create a `.env.development` file based on the variables mentioned above.
+
+
+---
+
+## 🔐 Generating Secure Secret Keys
+
+You can generate cryptographically secure keys using Node.js's built-in `crypto` module.
+
+### ✅ Generate `JWT_SECRET`
+
+Use the following command to generate a 256-byte secret key for JWT signing:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(256).toString('hex'))"
+```
+
+Copy the output and paste it into your `.env.development` file like this:
+
+```
+JWT_SECRET=your_generated_token_here
+```
+
+---
+
+### ✅ Generate `ENC_SECRET_KEY`
+
+Use the command below to generate a 32-byte secret key for encryption:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+Paste the result into your `.env.development` file like so:
+
+```
+ENC_SECRET_KEY=your_generated_key_here
+```
